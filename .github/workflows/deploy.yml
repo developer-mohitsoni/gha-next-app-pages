@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main # or your default branch
 
 permissions:
-  contents: write  # required to push to gh-pages
+  contents: write # required to push to gh-pages
 
 jobs:
   deploy:
@@ -18,13 +18,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # or your preferred version
+          node-version: "18" # or your preferred version
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build and Export
         run: npm run gh-pages
+        env:
+          NEXT_APP_BASE_PATH: ${{ vars.NEXT_APP_BASE_PATH }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
