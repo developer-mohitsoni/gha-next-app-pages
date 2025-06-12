@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
-    "gh-pages": "npm run build && npm run export"
+    "export": "next build",
+    "gh-pages": "next build"
   },
   "dependencies": {
     "react": "^19.0.0",
